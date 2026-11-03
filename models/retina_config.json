@@ -1,0 +1,1999 @@
+{
+  "organ": "retina",
+  "classes": [
+    "CNV",
+    "DME",
+    "DRUSEN",
+    "NORMAL"
+  ],
+  "class_full": {
+    "CNV": "Choroidal neovascularization",
+    "DME": "Diabetic macular edema",
+    "DRUSEN": "Drusen",
+    "NORMAL": "Normal retina"
+  },
+  "params": [
+    "retinal_profile",
+    "structural_integrity",
+    "layer_continuity",
+    "fluid_exudation"
+  ],
+  "params_raw": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+  ],
+  "sets": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "image_size": 224,
+  "colour": false,
+  "normalise": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "has_segmentation": false,
+  "rules": [
+    {
+      "id": "R51",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.4277
+    },
+    {
+      "id": "R38",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.2419
+    },
+    {
+      "id": "R00",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.1643
+    },
+    {
+      "id": "R05",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is High THEN DME",
+      "average_use": 0.1352
+    },
+    {
+      "id": "R11",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0052
+    },
+    {
+      "id": "R48",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0037
+    },
+    {
+      "id": "R01",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is Medium THEN DRUSEN",
+      "average_use": 0.0027
+    },
+    {
+      "id": "R02",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0025
+    },
+    {
+      "id": "R39",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0023
+    },
+    {
+      "id": "R12",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0017
+    },
+    {
+      "id": "R47",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0017
+    },
+    {
+      "id": "R03",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0015
+    },
+    {
+      "id": "R42",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0012
+    },
+    {
+      "id": "R08",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is High THEN DME",
+      "average_use": 0.0011
+    },
+    {
+      "id": "R29",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0009
+    },
+    {
+      "id": "R41",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is High THEN DME",
+      "average_use": 0.0005
+    },
+    {
+      "id": "R04",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0005
+    },
+    {
+      "id": "R24",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0005
+    },
+    {
+      "id": "R10",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0004
+    },
+    {
+      "id": "R37",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0004
+    },
+    {
+      "id": "R15",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is Low THEN DME",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R40",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R43",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R52",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R32",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is High THEN DME",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R49",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R27",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R30",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R16",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R09",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R46",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R78",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R07",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R14",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is High THEN DME",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R31",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R65",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R36",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R21",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R13",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R28",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is Medium THEN DRUSEN",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R06",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Low AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R35",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is High THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R34",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R17",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is High THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R45",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R20",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R44",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is High THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R50",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R33",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is Medium AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is Low THEN DRUSEN",
+      "average_use": 0.0
+    },
+    {
+      "id": "R53",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Medium"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Medium AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is High THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R25",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R22",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R19",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R74",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R75",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R18",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is Low THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R69",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R23",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is High THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R56",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R79",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R26",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "Low"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is Low AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is High THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R68",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R64",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R73",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R76",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is Medium THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R66",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is Low THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R67",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is Medium AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R63",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is Low AND fluid_exudation is Low THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R80",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is High AND fluid_exudation is High THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R54",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is Low THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R59",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is High THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R72",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is Low AND fluid_exudation is Low THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R70",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R77",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "High"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is High AND structural_integrity is High AND layer_continuity is Medium AND fluid_exudation is High THEN DRUSEN",
+      "average_use": 0.0
+    },
+    {
+      "id": "R55",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Low"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is Low AND fluid_exudation is Medium THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R57",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "CNV",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is Low THEN CNV",
+      "average_use": 0.0
+    },
+    {
+      "id": "R58",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "Medium"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "NORMAL",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is Medium AND fluid_exudation is Medium THEN NORMAL",
+      "average_use": 0.0
+    },
+    {
+      "id": "R62",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is High THEN DME",
+      "average_use": 0.0
+    },
+    {
+      "id": "R71",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Medium"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "High"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is High AND structural_integrity is Medium AND layer_continuity is High AND fluid_exudation is High THEN DRUSEN",
+      "average_use": 0.0
+    },
+    {
+      "id": "R61",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "DRUSEN",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is Medium THEN DRUSEN",
+      "average_use": 0.0
+    },
+    {
+      "id": "R60",
+      "conditions": [
+        {
+          "param": "retinal_profile",
+          "set": "High"
+        },
+        {
+          "param": "structural_integrity",
+          "set": "Low"
+        },
+        {
+          "param": "layer_continuity",
+          "set": "High"
+        },
+        {
+          "param": "fluid_exudation",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "DME",
+      "text": "IF retinal_profile is High AND structural_integrity is Low AND layer_continuity is High AND fluid_exudation is Low THEN DME",
+      "average_use": 0.0
+    }
+  ],
+  "confidence_threshold": 0.55,
+  "test_metrics": {
+    "accuracy": 0.942,
+    "macro_f1": 0.931
+  },
+  "notes": "Kermany 2018 OCT (CC BY 4.0). The dataset's own train/test split shares 539 of 609 test patients with training, so splits were rebuilt by patient with zero overlap and scans capped at 40 per patient per disease. No segmentation masks exist for this dataset, so the four bottleneck parameters were learned from the classification signal alone; their names are post-hoc interpretations of per-class behaviour, not measured against annotations."
+}

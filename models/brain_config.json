@@ -1,0 +1,2044 @@
+{
+  "organ": "brain",
+  "classes": [
+    "glioma",
+    "meningioma",
+    "pituitary",
+    "no_tumor"
+  ],
+  "params": [
+    "size",
+    "position",
+    "sharpness",
+    "enhancement"
+  ],
+  "sets": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "image_size": 224,
+  "normalise": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "scale_lo": [
+    0.0051140314899384975,
+    0.053204476833343506,
+    0.5640865564346313,
+    -0.6494812369346619
+  ],
+  "scale_hi": [
+    0.08812437951564789,
+    0.8068429231643677,
+    2.4115166664123535,
+    1.735442042350769
+  ],
+  "fuzzy_centres": [
+    [
+      0.3873000144958496,
+      0.9902999997138977,
+      1.0499999523162842
+    ],
+    [
+      -0.05000000074505806,
+      0.05689999833703041,
+      0.809499979019165
+    ],
+    [
+      -0.05000000074505806,
+      0.4643999934196472,
+      1.003499984741211
+    ],
+    [
+      -0.05000000074505806,
+      0.18970000743865967,
+      0.9629999995231628
+    ]
+  ],
+  "fuzzy_sigma": [
+    [
+      0.3677999973297119,
+      0.15230000019073486,
+      0.156700000166893
+    ],
+    [
+      0.16099999845027924,
+      0.1428000032901764,
+      0.22699999809265137
+    ],
+    [
+      0.17550000548362732,
+      0.14010000228881836,
+      0.18809999525547028
+    ],
+    [
+      0.15309999883174896,
+      0.15080000460147858,
+      0.20890000462532043
+    ]
+  ],
+  "rules": [
+    {
+      "id": "R23",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Low AND position is High AND sharpness is Medium AND enhancement is High THEN meningioma",
+      "average_use": 0.2511
+    },
+    {
+      "id": "R19",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is High AND sharpness is Low AND enhancement is Medium THEN glioma",
+      "average_use": 0.1963
+    },
+    {
+      "id": "R17",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Medium AND sharpness is High AND enhancement is High THEN pituitary",
+      "average_use": 0.1625
+    },
+    {
+      "id": "R08",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Low AND sharpness is High AND enhancement is High THEN pituitary",
+      "average_use": 0.1016
+    },
+    {
+      "id": "R09",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Medium AND sharpness is Low AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0469
+    },
+    {
+      "id": "R00",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Low AND sharpness is Low AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0463
+    },
+    {
+      "id": "R22",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is High AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0278
+    },
+    {
+      "id": "R10",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Medium AND sharpness is Low AND enhancement is Medium THEN no_tumor",
+      "average_use": 0.0259
+    },
+    {
+      "id": "R18",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is High AND sharpness is Low AND enhancement is Low THEN glioma",
+      "average_use": 0.0254
+    },
+    {
+      "id": "R01",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Low AND sharpness is Low AND enhancement is Medium THEN no_tumor",
+      "average_use": 0.0241
+    },
+    {
+      "id": "R14",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Medium AND sharpness is Medium AND enhancement is High THEN pituitary",
+      "average_use": 0.0202
+    },
+    {
+      "id": "R26",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Low AND position is High AND sharpness is High AND enhancement is High THEN meningioma",
+      "average_use": 0.0171
+    },
+    {
+      "id": "R20",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Low AND position is High AND sharpness is Low AND enhancement is High THEN meningioma",
+      "average_use": 0.0116
+    },
+    {
+      "id": "R05",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Low AND sharpness is Medium AND enhancement is High THEN pituitary",
+      "average_use": 0.0101
+    },
+    {
+      "id": "R50",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is High AND sharpness is Medium AND enhancement is High THEN meningioma",
+      "average_use": 0.009
+    },
+    {
+      "id": "R77",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is High AND sharpness is Medium AND enhancement is High THEN meningioma",
+      "average_use": 0.0045
+    },
+    {
+      "id": "R16",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Medium AND sharpness is High AND enhancement is Medium THEN pituitary",
+      "average_use": 0.0039
+    },
+    {
+      "id": "R46",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is High AND sharpness is Low AND enhancement is Medium THEN glioma",
+      "average_use": 0.0032
+    },
+    {
+      "id": "R13",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is Medium AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0023
+    },
+    {
+      "id": "R07",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Low AND sharpness is High AND enhancement is Medium THEN pituitary",
+      "average_use": 0.0022
+    },
+    {
+      "id": "R73",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is High AND sharpness is Low AND enhancement is Medium THEN glioma",
+      "average_use": 0.0015
+    },
+    {
+      "id": "R21",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is High AND sharpness is Medium AND enhancement is Low THEN glioma",
+      "average_use": 0.0014
+    },
+    {
+      "id": "R04",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Low AND sharpness is Medium AND enhancement is Medium THEN no_tumor",
+      "average_use": 0.0011
+    },
+    {
+      "id": "R45",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is High AND sharpness is Low AND enhancement is Low THEN glioma",
+      "average_use": 0.0007
+    },
+    {
+      "id": "R49",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is High AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0004
+    },
+    {
+      "id": "R72",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is High AND sharpness is Low AND enhancement is Low THEN glioma",
+      "average_use": 0.0004
+    },
+    {
+      "id": "R53",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is High AND sharpness is High AND enhancement is High THEN meningioma",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R47",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is High AND sharpness is Low AND enhancement is High THEN meningioma",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R12",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Medium AND sharpness is Medium AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R11",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is Medium AND sharpness is Low AND enhancement is High THEN glioma",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R03",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Low AND position is Low AND sharpness is Medium AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R76",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is High AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R25",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is High AND sharpness is High AND enhancement is Medium THEN pituitary",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R80",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is High AND sharpness is High AND enhancement is High THEN meningioma",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R74",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is High AND sharpness is Low AND enhancement is High THEN meningioma",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R02",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is Low AND sharpness is Low AND enhancement is High THEN glioma",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R44",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Medium AND position is Medium AND sharpness is High AND enhancement is High THEN pituitary",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R35",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Medium AND position is Low AND sharpness is High AND enhancement is High THEN pituitary",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R41",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is Medium AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R71",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Medium AND sharpness is High AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R48",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is High AND sharpness is Medium AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R62",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Low AND sharpness is High AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R68",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Medium AND sharpness is Medium AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R32",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Medium AND position is Low AND sharpness is Medium AND enhancement is High THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R15",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Medium AND sharpness is High AND enhancement is Low THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R75",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is High AND sharpness is Medium AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R37",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is Low AND enhancement is Medium THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R06",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Low AND position is Low AND sharpness is High AND enhancement is Low THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R59",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is High AND position is Low AND sharpness is Medium AND enhancement is High THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R64",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Medium AND sharpness is Low AND enhancement is Medium THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R28",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is Low AND sharpness is Low AND enhancement is Medium THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R40",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is Medium AND enhancement is Medium THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R52",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is High AND sharpness is High AND enhancement is Medium THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R55",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is Low AND sharpness is Low AND enhancement is Medium THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R36",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is Low AND enhancement is Low THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R24",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Low"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Low AND position is High AND sharpness is High AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R38",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is Low AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R79",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is High AND sharpness is High AND enhancement is Medium THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R67",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is Medium AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R31",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is Low AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R63",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is High AND position is Medium AND sharpness is Low AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0
+    },
+    {
+      "id": "R43",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Medium AND position is Medium AND sharpness is High AND enhancement is Medium THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R27",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Low AND sharpness is Low AND enhancement is Low THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R65",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Medium AND sharpness is Low AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R34",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Low AND sharpness is High AND enhancement is Medium THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R29",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Low AND sharpness is Low AND enhancement is High THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R58",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is Low AND sharpness is Medium AND enhancement is Medium THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R70",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is High AND position is Medium AND sharpness is High AND enhancement is Medium THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R54",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Low AND sharpness is Low AND enhancement is Low THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R61",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is High AND position is Low AND sharpness is High AND enhancement is Medium THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R56",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Low"
+        },
+        {
+          "param": "enhancement",
+          "set": "High"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is High AND position is Low AND sharpness is Low AND enhancement is High THEN no_tumor",
+      "average_use": 0.0
+    },
+    {
+      "id": "R39",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is Medium AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R66",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is High AND position is Medium AND sharpness is Medium AND enhancement is Low THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R30",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Medium AND position is Low AND sharpness is Medium AND enhancement is Low THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R51",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "pituitary",
+      "text": "IF size is Medium AND position is High AND sharpness is High AND enhancement is Low THEN pituitary",
+      "average_use": 0.0
+    },
+    {
+      "id": "R57",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "Medium"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is Low AND sharpness is Medium AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R78",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "High"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is High AND sharpness is High AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R42",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "meningioma",
+      "text": "IF size is Medium AND position is Medium AND sharpness is High AND enhancement is Low THEN meningioma",
+      "average_use": 0.0
+    },
+    {
+      "id": "R33",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "Medium"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is Medium AND position is Low AND sharpness is High AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0
+    },
+    {
+      "id": "R69",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Medium"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "no_tumor",
+      "text": "IF size is High AND position is Medium AND sharpness is High AND enhancement is Low THEN no_tumor",
+      "average_use": 0.0
+    },
+    {
+      "id": "R60",
+      "conditions": [
+        {
+          "param": "size",
+          "set": "High"
+        },
+        {
+          "param": "position",
+          "set": "Low"
+        },
+        {
+          "param": "sharpness",
+          "set": "High"
+        },
+        {
+          "param": "enhancement",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "glioma",
+      "text": "IF size is High AND position is Low AND sharpness is High AND enhancement is Low THEN glioma",
+      "average_use": 0.0
+    }
+  ],
+  "confidence_threshold": 0.6,
+  "test_metrics": {
+    "model": "+ segmentation head (final)",
+    "accuracy": 0.969,
+    "macro-F1": 0.972,
+    "param error": 0.139,
+    "Dice": 0.541
+  },
+  "notes": "Trained on BRISC 2025. Image-level evaluation; no patient IDs available."
+}

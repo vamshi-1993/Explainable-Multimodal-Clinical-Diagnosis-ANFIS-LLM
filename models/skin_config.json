@@ -1,0 +1,2060 @@
+{
+  "organ": "skin",
+  "classes": [
+    "malignant",
+    "benign",
+    "vascular"
+  ],
+  "groups": {
+    "malignant": [
+      "mel",
+      "bcc",
+      "akiec"
+    ],
+    "benign": [
+      "nv",
+      "bkl",
+      "df"
+    ],
+    "vascular": [
+      "vasc"
+    ]
+  },
+  "params": [
+    "colour",
+    "blue_white",
+    "contrast",
+    "texture"
+  ],
+  "sets": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "image_size": 224,
+  "colour": true,
+  "normalise": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "scale_lo": [
+    0.2148924022912979,
+    0.0,
+    0.4545525908470154,
+    0.17964982986450195
+  ],
+  "scale_hi": [
+    0.6814659237861633,
+    0.013832734897732735,
+    7.282271862030029,
+    0.6511203646659851
+  ],
+  "fuzzy_centres": [
+    [
+      0.07609999924898148,
+      0.7839999794960022,
+      1.0499999523162842
+    ],
+    [
+      0.04619999974966049,
+      0.7225000262260437,
+      1.023300051689148
+    ],
+    [
+      0.2313999980688095,
+      0.862500011920929,
+      1.0499999523162842
+    ],
+    [
+      -0.05000000074505806,
+      0.8201000094413757,
+      0.7434999942779541
+    ]
+  ],
+  "fuzzy_sigma": [
+    [
+      0.25949999690055847,
+      0.17389999330043793,
+      0.21369999647140503
+    ],
+    [
+      0.2538999915122986,
+      0.17520000040531158,
+      0.22609999775886536
+    ],
+    [
+      0.3167000114917755,
+      0.17520000040531158,
+      0.17880000174045563
+    ],
+    [
+      0.17319999635219574,
+      0.15379999577999115,
+      0.27399998903274536
+    ]
+  ],
+  "rules": [
+    {
+      "id": "R00",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is Low AND texture is Low THEN benign",
+      "average_use": 0.3038
+    },
+    {
+      "id": "R02",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is Low AND texture is High THEN malignant",
+      "average_use": 0.2018
+    },
+    {
+      "id": "R29",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is Low AND texture is High THEN benign",
+      "average_use": 0.1073
+    },
+    {
+      "id": "R27",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is Low AND texture is Low THEN benign",
+      "average_use": 0.1006
+    },
+    {
+      "id": "R56",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is Low AND texture is High THEN benign",
+      "average_use": 0.0341
+    },
+    {
+      "id": "R32",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0334
+    },
+    {
+      "id": "R28",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is Low AND texture is Medium THEN benign",
+      "average_use": 0.0256
+    },
+    {
+      "id": "R54",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is Low AND texture is Low THEN benign",
+      "average_use": 0.0212
+    },
+    {
+      "id": "R01",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is Low AND texture is Medium THEN malignant",
+      "average_use": 0.0203
+    },
+    {
+      "id": "R31",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is Medium AND texture is Medium THEN benign",
+      "average_use": 0.0157
+    },
+    {
+      "id": "R59",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Low AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0153
+    },
+    {
+      "id": "R35",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0113
+    },
+    {
+      "id": "R55",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is Low AND texture is Medium THEN benign",
+      "average_use": 0.0104
+    },
+    {
+      "id": "R58",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is Medium AND texture is Medium THEN benign",
+      "average_use": 0.0086
+    },
+    {
+      "id": "R18",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Low AND blue_white is High AND contrast is Low AND texture is Low THEN vascular",
+      "average_use": 0.0079
+    },
+    {
+      "id": "R05",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0074
+    },
+    {
+      "id": "R38",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is Low AND texture is High THEN malignant",
+      "average_use": 0.0067
+    },
+    {
+      "id": "R34",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.006
+    },
+    {
+      "id": "R62",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is High AND texture is High THEN benign",
+      "average_use": 0.0059
+    },
+    {
+      "id": "R09",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is Low AND texture is Low THEN vascular",
+      "average_use": 0.0054
+    },
+    {
+      "id": "R47",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is Low AND texture is High THEN vascular",
+      "average_use": 0.005
+    },
+    {
+      "id": "R11",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is Low AND texture is High THEN malignant",
+      "average_use": 0.0041
+    },
+    {
+      "id": "R37",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is Low AND texture is Medium THEN malignant",
+      "average_use": 0.0037
+    },
+    {
+      "id": "R61",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Low AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0037
+    },
+    {
+      "id": "R20",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is High AND contrast is Low AND texture is High THEN malignant",
+      "average_use": 0.003
+    },
+    {
+      "id": "R30",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is Medium AND texture is Low THEN benign",
+      "average_use": 0.003
+    },
+    {
+      "id": "R46",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is Low AND texture is Medium THEN malignant",
+      "average_use": 0.0025
+    },
+    {
+      "id": "R03",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is Medium AND texture is Low THEN benign",
+      "average_use": 0.0023
+    },
+    {
+      "id": "R65",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is Low AND texture is High THEN malignant",
+      "average_use": 0.0021
+    },
+    {
+      "id": "R04",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is Medium AND texture is Medium THEN malignant",
+      "average_use": 0.0018
+    },
+    {
+      "id": "R74",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is High AND blue_white is High AND contrast is Low AND texture is High THEN vascular",
+      "average_use": 0.0015
+    },
+    {
+      "id": "R41",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0015
+    },
+    {
+      "id": "R08",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0013
+    },
+    {
+      "id": "R64",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is Low AND texture is Medium THEN vascular",
+      "average_use": 0.0013
+    },
+    {
+      "id": "R50",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0011
+    },
+    {
+      "id": "R45",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is Low AND texture is Low THEN vascular",
+      "average_use": 0.001
+    },
+    {
+      "id": "R10",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is Low AND texture is Medium THEN malignant",
+      "average_use": 0.001
+    },
+    {
+      "id": "R57",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is Medium AND texture is Low THEN benign",
+      "average_use": 0.0009
+    },
+    {
+      "id": "R73",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is High AND blue_white is High AND contrast is Low AND texture is Medium THEN vascular",
+      "average_use": 0.0009
+    },
+    {
+      "id": "R33",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Low AND contrast is High AND texture is Low THEN malignant",
+      "average_use": 0.0007
+    },
+    {
+      "id": "R40",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is Medium AND texture is Medium THEN benign",
+      "average_use": 0.0007
+    },
+    {
+      "id": "R19",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is High AND contrast is Low AND texture is Medium THEN malignant",
+      "average_use": 0.0007
+    },
+    {
+      "id": "R49",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is Medium AND texture is Medium THEN malignant",
+      "average_use": 0.0006
+    },
+    {
+      "id": "R68",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0006
+    },
+    {
+      "id": "R44",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0005
+    },
+    {
+      "id": "R36",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is Low AND texture is Low THEN vascular",
+      "average_use": 0.0005
+    },
+    {
+      "id": "R77",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is High AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0005
+    },
+    {
+      "id": "R07",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0004
+    },
+    {
+      "id": "R53",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0004
+    },
+    {
+      "id": "R06",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Low AND contrast is High AND texture is Low THEN malignant",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R67",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is Medium AND texture is Medium THEN benign",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R76",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is High AND contrast is Medium AND texture is Medium THEN malignant",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R21",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Low AND blue_white is High AND contrast is Medium AND texture is Low THEN vascular",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R60",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Low"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Low AND contrast is High AND texture is Low THEN benign",
+      "average_use": 0.0003
+    },
+    {
+      "id": "R14",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R12",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is Medium AND texture is Low THEN benign",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R43",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R71",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R23",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is High AND contrast is Medium AND texture is High THEN malignant",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R72",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is High AND blue_white is High AND contrast is Low AND texture is Low THEN vascular",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R52",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R48",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is Medium AND texture is Low THEN vascular",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R80",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is High AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0002
+    },
+    {
+      "id": "R39",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is Medium AND texture is Low THEN benign",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R79",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is High AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R70",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is High AND texture is Medium THEN benign",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R24",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Low AND blue_white is High AND contrast is High AND texture is Low THEN benign",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R63",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Low"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is Low AND texture is Low THEN vascular",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R17",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R15",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is High AND texture is Low THEN benign",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R42",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Medium AND blue_white is Medium AND contrast is High AND texture is Low THEN malignant",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R13",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is Medium AND texture is Medium THEN malignant",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R26",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "High"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is High AND contrast is High AND texture is High THEN malignant",
+      "average_use": 0.0001
+    },
+    {
+      "id": "R51",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Medium"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is Medium AND blue_white is High AND contrast is High AND texture is Low THEN benign",
+      "average_use": 0.0
+    },
+    {
+      "id": "R22",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "vascular",
+      "text": "IF colour is Low AND blue_white is High AND contrast is Medium AND texture is Medium THEN vascular",
+      "average_use": 0.0
+    },
+    {
+      "id": "R75",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "benign",
+      "text": "IF colour is High AND blue_white is High AND contrast is Medium AND texture is Low THEN benign",
+      "average_use": 0.0
+    },
+    {
+      "id": "R66",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "Medium"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is Medium AND texture is Low THEN malignant",
+      "average_use": 0.0
+    },
+    {
+      "id": "R16",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is Medium AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0
+    },
+    {
+      "id": "R78",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is High AND contrast is High AND texture is Low THEN malignant",
+      "average_use": 0.0
+    },
+    {
+      "id": "R25",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "Low"
+        },
+        {
+          "param": "blue_white",
+          "set": "High"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Medium"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is Low AND blue_white is High AND contrast is High AND texture is Medium THEN malignant",
+      "average_use": 0.0
+    },
+    {
+      "id": "R69",
+      "conditions": [
+        {
+          "param": "colour",
+          "set": "High"
+        },
+        {
+          "param": "blue_white",
+          "set": "Medium"
+        },
+        {
+          "param": "contrast",
+          "set": "High"
+        },
+        {
+          "param": "texture",
+          "set": "Low"
+        }
+      ],
+      "conclusion": "malignant",
+      "text": "IF colour is High AND blue_white is Medium AND contrast is High AND texture is Low THEN malignant",
+      "average_use": 0.0
+    }
+  ],
+  "malignant_threshold": 0.4,
+  "decision_rule": "predict malignant if P(malignant) >= malignant_threshold, else argmax over the remaining classes",
+  "test_metrics": {
+    "accuracy": 0.76,
+    "macro_f1": 0.647,
+    "malignant_recall": 0.792,
+    "false_alarm_rate": 0.231,
+    "dice": 0.827
+  },
+  "notes": "HAM10000 (Tschandl 2018), CC BY-NC 4.0, non-commercial use only. Split by lesion_id with no lesion appearing in two splits. 7 original diagnoses grouped into 3 risk categories because a 4-parameter bottleneck could not separate 7 classes (macro-F1 0.263). Decision threshold set to 0.40 to favour catching malignant lesions."
+}
